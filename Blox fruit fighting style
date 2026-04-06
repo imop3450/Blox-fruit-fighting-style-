@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blox Fruit | Full Style Acquisition Guide by imop3450</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #e94560; --beli: #4ecca3; --frag: #a29bfe;
+            --bg: #05070a; --surface: #0f111a; 
+            --gold: #f1c40f; --cyan: #00d2ff; --red: #e74c3c;
+        }
+
+        body { 
+            background: radial-gradient(circle at top, #1a1a2e, var(--bg)); 
+            color: #fff; font-family: 'Poppins', sans-serif; margin: 0; padding: 20px; line-height: 1.6;
+        }
+
+        header { text-align: center; padding: 80px 0 40px; }
+        h1 { font-size: clamp(2rem, 8vw, 3.5rem); text-transform: uppercase; letter-spacing: 12px; text-shadow: 0 0 30px var(--primary); margin: 0; }
+        .description-tag { color: #666; font-size: 0.85rem; margin-top: 10px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 400; }
+        .dev-tag { color: var(--primary); font-weight: 600; letter-spacing: 3px; font-size: 0.9rem; margin-top: 25px; display: block; }
+
+        .search-container { max-width: 600px; margin: 0 auto 60px; }
+        #styleSearch { 
+            width: 100%; padding: 20px 35px; border-radius: 15px; 
+            background: var(--surface); border: 1px solid rgba(255,255,255,0.1); 
+            color: white; outline: none; transition: 0.4s; font-size: 1rem;
+        }
+        #styleSearch:focus { border-color: var(--primary); box-shadow: 0 0 20px rgba(233, 69, 96, 0.3); }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 35px; max-width: 1400px; margin: auto; }
+
+        .card { 
+            background: var(--surface); border-radius: 20px; padding: 35px; 
+            border: 2px solid rgba(233, 69, 96, 0.4); 
+            box-shadow: 0 0 15px rgba(233, 69, 96, 0.1);
+            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            display: flex; flex-direction: column; position: relative;
+        }
+        .card:hover { 
+            transform: translateY(-12px); 
+            border-color: rgba(233, 69, 96, 0.9); 
+            box-shadow: 0 15px 40px rgba(233, 69, 96, 0.3); 
+        }
+
+        .power-badge {
+            display: inline-flex; align-items: center; padding: 6px 14px; border-radius: 8px;
+            font-size: 0.7rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;
+            margin-bottom: 20px; border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(5px); width: fit-content;
+        }
+        .tier-god { background: rgba(241, 196, 15, 0.1); color: var(--gold); border-color: rgba(241, 196, 15, 0.4); }
+        .tier-grind { background: rgba(0, 210, 255, 0.1); color: var(--cyan); border-color: rgba(0, 210, 255, 0.4); }
+        .tier-combo { background: rgba(231, 76, 60, 0.1); color: var(--red); border-color: rgba(231, 76, 60, 0.4); }
+
+        .power-desc { font-size: 0.8rem; color: #aaa; margin: -10px 0 20px; padding-left: 12px; border-left: 2px solid; line-height: 1.4; }
+
+        h2 { margin: 0 0 20px; font-size: 1.8rem; color: #fff; letter-spacing: 1px; }
+
+        .cost-row { margin: 10px 0; font-size: 0.9rem; display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 8px; }
+        .v-beli { color: var(--beli); font-weight: 700; }
+        .v-frag { color: var(--frag); font-weight: 700; }
+
+        .req-box { background: rgba(0,0,0,0.3); padding: 18px; border-radius: 12px; margin: 20px 0; flex-grow: 1; border: 1px solid rgba(255,255,255,0.03); }
+        .req-title { color: var(--primary); font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 8px; }
+        .info-text { font-size: 0.85rem; color: #ccc; margin: 0; }
+
+        .yt-credit { font-size: 0.75rem; color: #666; text-align: center; margin-bottom: 12px; }
+        .guide-btn { 
+            background: transparent; color: #fff; text-decoration: none; text-align: center; padding: 15px; 
+            border-radius: 12px; font-size: 0.85rem; font-weight: 700; border: 2px solid var(--primary); transition: 0.3s;
+        }
+        .guide-btn:hover { background: var(--primary); box-shadow: 0 0 20px var(--primary); color: #fff; }
+
+        footer { margin-top: 100px; padding: 60px; background: var(--surface); text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>BLOX FRUIT</h1>
+    <p class="description-tag">THE ULTIMATE 2026 STYLE ENCYCLOPEDIA</p>
+    <span class="dev-tag">DEVELOPED BY IMOP3450</span>
+</header>
+
+<div class="search-container">
+    <input type="text" id="styleSearch" placeholder="Search styles, seas, or power levels..." onkeyup="filterStyles()">
+</div>
+
+<div class="grid" id="styleGrid">
+    
+    <div class="card" data-name="combat legacy starting starter">
+        <div class="power-badge" style="color:#666; border-color:#333;">LEGACY ONLY</div>
+        <div class="power-desc" style="border-color:#333;">The starting style. Once unequipped, it can never be relearned.</div>
+        <h2>Combat</h2>
+        <div class="req-box">
+            <span class="req-title">Status:</span>
+            <p class="info-text">Standard starter style. No requirements. No NPC exists to teach this once lost.</p>
+        </div>
+        <a href="#" class="guide-btn" style="border-color: #333; opacity: 0.5; pointer-events: none;">No Guide Available</a>
+    </div>
+
+    <div class="card" data-name="sanguine art pvp grind third sea">
+        <div class="power-badge tier-god">GOD TIER: LIFESTEAL</div>
+        <div class="power-desc" style="border-color: var(--gold);">Unmatched sustain. The only style that heals you during combat.</div>
+        <h2>Sanguine Art</h2>
+        <div class="cost-row"><span>Beli:</span><span class="v-beli">$5,000,000</span></div>
+        <div class="cost-row"><span>Fragments:</span><span class="v-frag">5,000</span></div>
+        <div class="req-box">
+            <span class="req-title">Acquisition:</span>
+            <p class="info-text">Leviathan Heart + Materials. NPC: Shafi at Tiki Outpost (Third Sea).</p>
+        </div>
+        <div class="yt-credit">Guide by <span style="color:#fff">Brugify</span></div>
+        <a href="https://www.youtube.com/results?search_query=sanguine+art+blox+fruits" target="_blank" class="guide-btn">Watch Master Guide</a>
+    </div>
+
+    <div class="card" data-name="godhuman pvp combo third sea">
+        <div class="power-badge tier-god">GOD TIER: PVP KING</div>
+        <div class="power-desc" style="border-color: var(--gold);">The peak of PVP. Massive stuns and high-speed execution.</div>
+        <h2>Godhuman</h2>
+        <div class="cost-row"><span>Beli:</span><span class="v-beli">$5,000,000</span></div>
+        <div class="cost-row"><span>Fragments:</span><span class="v-frag">5,000</span></div>
+        <div class="req-box">
+            <span class="req-title">Requirements:</span>
+            <p class="info-text">400 Mastery on all V2 Styles. NPC: Ancient Monk at Floating Turtle.</p>
+        </div>
+        <div class="yt-credit">Guide by <span style="color:#fff">Brugify</span></div>
+        <a href="https://www.youtube.com/results?search_query=godhuman+blox+fruits" target="_blank" class="guide-btn">Watch Master Guide</a>
+    </div>
+
+    <div class="card" data-name="sharkman karate v2 grind sea 2 sea 3">
+        <div class="power-badge tier-grind">GRINDING KING</div>
+        <div class="power-desc" style="border-color: var(--cyan);">Fastest M1 speed. The essential choice for Buddha users.</div>
+        <h2>Sharkman V2</h2>
+        <div class="cost-row"><span>Requirement:</span><span class="v-beli">Skill Based</span></div>
+        <div class="req-box">
+            <span class="req-title">Upgrade Path:</span>
+            <p class="info-text">Defeat Sharkman Master at Submerged Island. Requires focus on speed-grinding.</p>
+        </div>
+        <div class="yt-credit">Guide by <span style="color:#fff">syoct</span></div>
+        <a href="https://www.youtube.com/results?search_query=sharkman+karate+v2" target="_blank" class="guide-btn">Watch Upgrade Guide</a>
+    </div>
+
+    <div class="card" data-name="dragon talon v2 combo grind sea 3">
+        <div class="power-badge tier-combo">AOE SPECIALIST</div>
+        <div class="power-desc" style="border-color: var(--red);">Massive area damage. Great for clearing groups of enemies.</div>
+        <h2>Dragon Talon V2</h2>
+        <div class="cost-row"><span>Materials:</span><span class="v-frag">22 Blaze Embers</span></div>
+        <div class="req-box">
+            <span class="req-title">New Location:</span>
+            <p class="info-text">NPC: Uzoth at Dragon Dojo (Hydra Island). Requires Blue Belt mastery.</p>
+        </div>
+        <div class="yt-credit">Guide by <span style="color:#fff">dairy duck</span></div>
+        <a href="https://www.youtube.com/results?search_query=dragon+talon+blox+fruits" target="_blank" class="guide-btn">Watch Full Guide</a>
+    </div>
+
+    <div class="card" data-name="electric claw pvp movement sea 3">
+        <div class="power-badge tier-god">SPEED DEMON</div>
+        <div class="power-desc" style="border-color: var(--gold);">Top tier movement. Allows for aggressive hit-and-run tactics.</div>
+        <h2>Electric Claw</h2>
+        <div class="cost-row"><span>Beli:</span><span class="v-beli">$3,000,000</span></div>
+        <div class="cost-row"><span>Fragments:</span><span class="v-frag">5,000</span></div>
+        <div class="req-box">
+            <span class="req-title">The Challenge:</span>
+            <p class="info-text">400 Mastery on Electric + 30 Second Speed Quest to Mansion.</p>
+        </div>
+        <div class="yt-credit">Guide by <span style="color:#fff">Brugify</span></div>
+        <a href="https://www.youtube.com/results?search_query=electric+claw+blox+fruits" target="_blank" class="guide-btn">Watch Master Guide</a>
+    </div>
+
+    <div class="card" data-name="superhuman combo sea 2">
+        <div class="power-badge tier-combo">COMBO STARTER</div>
+        <div class="power-desc" style="border-color: var(--red);">The bridge to Godhuman. Classic high-damage combos.</div>
+        <h2>Superhuman</h2>
+        <div class="cost-row"><span>Beli:</span><span class="v-beli">$3,000,000</span></div>
+        <div class="req-box">
+            <span class="req-title">Requirements:</span>
+            <p class="info-text">300 Mastery on Dragon Breath, Electric, Dark Step, and Water Kung Fu.</p>
+        </div>
+        <div class="yt-credit">Guide by <span style="color:#fff">Brugify</span></div>
+        <a href="https://www.youtube.com/results?search_query=superhuman+blox+fruits" target="_blank" class="guide-btn">Watch Master Guide</a>
+    </div>
+
+    <div class="card" data-name="death step grind sea 2">
+        <div class="power-badge tier-grind">HEAVY DAMAGE</div>
+        <div class="power-desc" style="border-color: var(--cyan);">High burn damage. Perfect for mid-game Second Sea grinding.</div>
+        <h2>Death Step</h2>
+        <div class="cost-row"><span>Beli:</span><span class="v-beli">$2,500,000</span></div>
+        <div class="cost-row"><span>Fragments:</span><span class="v-frag">5,000</span></div>
+        <div class="req-box">
+            <span class="req-title">Requirements:</span>
+            <p class="info-text">400 Mastery on Dark Step + Library Key drop from Ice Admiral.</p>
+        </div>
+        <div class="yt-credit">Guide by <span style="color:#fff">Brugify</span></div>
+        <a href="https://www.youtube.com/results?search_query=death+step+blox+fruits" target="_blank" class="guide-btn">Watch Master Guide</a>
+    </div>
+
+    <div class="card" data-name="water kung fu grind sea 1">
+        <div class="power-badge tier-grind">SEA 1 MVP</div>
+        <div class="power-desc" style="border-color: var(--cyan);">The absolute best style for First Sea leveling.</div>
+        <h2>Water Kung Fu</h2>
+        <div class="cost-row"><span>Beli:</span><span class="v-beli">$750,000</span></div>
+        <div class="req-box">
+            <span class="req-title">Location:</span>
+            <p class="info-text">Hidden in Underwater City. Look for the teacher behind the secret wall.</p>
+        </div>
+        <div class="yt-credit">Guide by <span style="color:#fff">HawkHammer v3</span></div>
+        <a href="https://www.youtube.com/results?search_query=water+kung+fu+blox+fruits" target="_blank" class="guide-btn">Watch Location Guide</a>
+    </div>
+
+    <div class="card" data-name="electric starter sea 1">
+        <div class="power-badge tier-combo">STUN STARTER</div>
+        <div class="power-desc" style="border-color: var(--red);">Decent stuns for Sea 1 Bosses. Foundation for E-Claw.</div>
+        <h2>Electric (V1)</h2>
+        <div class="cost-row"><span>Beli:</span><span class="v-beli">$500,000</span></div>
+        <div class="req-box">
+            <span class="req-title">Location:</span>
+            <p class="info-text">NPC: Mad Scientist at Skylands. Hidden behind a rock on the lower level.</p>
+        </div>
+        <div class="yt-credit">Guide by <span style="color:#fff">Riotz</span></div>
+        <a href="https://www.youtube.com/results?search_query=electric+style+v1+blox+fruits" target="_blank" class="guide-btn">Watch Short Guide</a>
+    </div>
+
+    <div class="card" data-name="dark step starter sea 1">
+        <div class="power-badge" style="color:#666; border-color:#333;">THE FOUNDATION</div>
+        <div class="power-desc" style="border-color: #333;">The first style most players buy. Essential for the burn effect.</div>
+        <h2>Dark Step (V1)</h2>
+        <div class="cost-row"><span>Beli:</span><span class="v-beli">$150,000</span></div>
+        <div class="req-box">
+            <span class="req-title">Location:</span>
+            <p class="info-text">Pirate Village. Look for the secret door near the docks.</p>
+        </div>
+        <div class="yt-credit">Guide by <span style="color:#fff">PixelQuest Plays</span></div>
+        <a href="https://www.youtube.com/results?search_query=dark+step+blox+fruits" target="_blank" class="guide-btn">Watch Short Guide</a>
+    </div>
+
+    <div class="card" data-name="dragon breath starter sea 2">
+        <div class="power-badge tier-grind">SEA 2 STARTER</div>
+        <div class="power-desc" style="border-color: var(--cyan);">Best value for fragments. Strong AOE for starting Sea 2.</div>
+        <h2>Dragon Breath</h2>
+        <div class="cost-row"><span>Fragments:</span><span class="v-frag">1,500</span></div>
+        <div class="req-box">
+            <span class="req-title">Requirements:</span>
+            <p class="info-text">NPC: Sabi (Second Sea). Hidden in the tunnel near Swan Pirates.</p>
+        </div>
+        <div class="yt-credit">Guide by <span style="color:#fff">Starnatural</span></div>
+        <a href="https://www.youtube.com/results?search_query=dragon+breath+blox+fruits" target="_blank" class="guide-btn">Watch Short Guide</a>
+    </div>
+
+</div>
+
+<footer>
+    <div style="color: var(--primary); font-weight: bold; letter-spacing: 2px; margin-bottom: 20px;">IMOP3450 PRODUCTIONS</div>
+    <div style="max-width: 800px; margin: auto; font-size: 0.8rem; color: #555; line-height: 1.8;">
+        Credits: Video content powered by Brugify, dairy duck, syoct, Starnatural, HawkHammer v3, Riotz, and PixelQuest Plays. 
+        All data verified for the 2026 game meta.
+    </div>
+</footer>
+
+<script>
+    function filterStyles() {
+        let input = document.getElementById('styleSearch').value.toLowerCase();
+        let cards = document.getElementsByClassName('card');
+        for (let card of cards) {
+            let name = card.getAttribute('data-name');
+            card.classList.toggle('hidden', !name.includes(input));
+        }
+    }
+</script>
+
+</body>
+</html>
+
